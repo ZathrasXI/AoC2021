@@ -18,3 +18,5 @@ fs.createReadStream('input.csv')
 	}
 	console.log(counter)
 });
+//  if you’re not worried about TypeScript errors, you can pass in the -T or --transpileOnly flag. 
+//This flag tells ts-node to transpile down to JavaScript without checking for any TypeScript errors.
