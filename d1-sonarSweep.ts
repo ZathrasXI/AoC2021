@@ -1,18 +1,20 @@
 const csv = require('csv-parser')
 const fs = require('fs')
-const results = []
-type sonarReport = {
-	blank: string;
-	reading: number;
-};
+let input:number[] = []
+let counter = 0;
 
 fs.createReadStream('input.csv')
-.pipe(csv([
-	{ separator: '\n' },
-	{ headers: false }
-]
+.pipe(csv(
+	 ['reading']
 ))
-.on('data', (data) => sonarReport.reading.push(data))
+	.on('data', (row) => {
+	input.push(parseInt(row['reading']))
+})
 .on('end', () => {
-	console.log(sonarReport.reading)
+	for(let i = 1; i < input.length; i++) {
+		if (input[i] > input[i - 1]) {
+			counter++;
+		}
+	}
+	console.log(counter)
 });
