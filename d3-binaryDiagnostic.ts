@@ -29,3 +29,8 @@ for (let k = 0; k < columnSum.length; k++) {
 let power: number = parseInt(gamma, 2) * parseInt(epsilon, 2)
 console.log(power)
 
+
+// Part 2
+const inputArray = data.split("\n");
+const oxygen: string[] = inputArray.filter(reading => reading == gamma)
+console.log(oxygen)
